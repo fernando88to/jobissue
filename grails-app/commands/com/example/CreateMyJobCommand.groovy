@@ -20,19 +20,21 @@ class CreateMyJobCommand implements GrailsApplicationCommand {
     boolean handle() {
 
 
-        String className = args?.size() >= 1 ? args.first() : 'Teste'
-        String packagePath = ''
+        String classNameFull = args?.size() >= 1 ? args.first() : 'Teste'
 
 
-        Model model = model('com.examples.Teste')
 
-        def modelConfigurado = [packageName: getDefaultPackage(), className: className,
-                                simpleName : model.simpleName, packagePath: packagePath]
+        Model model = model(classNameFull)
+
+//        def modelConfigurado = [packageName: model.packageName, className: model.simpleName,
+//                                simpleName : model.simpleName, packagePath: model.packagePath]
 
 
+        String pathDestinationFile = "grails-app/jobs/$model.packagePath/${trimTrailingJobFromJobName(model.simpleName)}Job.groovy"
+        File fileDestination = file(pathDestinationFile)
         render template: "MyJob.groovy",
-                destination: file("grails-app/jobs/$modelConfigurado.packagePath/${trimTrailingJobFromJobName(modelConfigurado.simpleName)}Job.groovy"),
-                model: modelConfigurado
+                destination: fileDestination,
+                model: model
         return true
     }
 
@@ -40,13 +42,10 @@ class CreateMyJobCommand implements GrailsApplicationCommand {
      * Se 'Job' já existir no final do nome do job, ele é removido.
      */
     private String trimTrailingJobFromJobName(String jobName) {
-        String type = "Job"
-        String processedName = name
-        Integer lastIndexOfJOBInJobName = name.lastIndexOf(type)
-        if (lastIndexOfJOBInJobName == (name.length() - type.length())) {
-            processedName = name.substring(0, lastIndexOfJOBInJobName)
+        if (jobName.endsWith("Job")) {
+            return jobName.substring(0, jobName.length() - 3)
         }
-        return processedName
+        return jobName
     }
 
 }

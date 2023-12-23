@@ -23,3 +23,7 @@
 
 https://docs.grails.org/latest/guide/commandLine.html
 ./gradlew runCommand  -Pargs="create-job com.fernando.MeuProcessador"  
+
+com o comando que eu criei 
+
+./gradlew runCommand -Pargs="create-my-job com.example.jobs.MeuProcessador2"

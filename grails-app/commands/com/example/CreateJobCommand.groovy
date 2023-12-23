@@ -53,7 +53,7 @@ class CreateJobCommand implements GrailsApplicationCommand {
      * Se 'Job2' já existir no final do nome do job, ele é removido.
      */
     private String trimTrailingJobFromJobName(String jobName) {
-        if (jobName.endsWith("Job2")) {
+        if (jobName.endsWith("Job")) {
             return jobName.substring(0, jobName.length() - 3)
         }
         return jobName
