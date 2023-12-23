@@ -2,11 +2,11 @@
 quartz:
   autoStartup: false
 ---
-info:
-  app:
-    name: '@info.app.name@'
-    version: '@info.app.version@'
-    grailsVersion: '@info.app.grailsVersion@'
+#info:
+#  app:
+#    name: '@info.app.name@'
+#    version: '@info.app.version@'
+#    grailsVersion: '@info.app.grailsVersion@'
 grails:
   views:
     default:

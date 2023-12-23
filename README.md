@@ -21,3 +21,5 @@
 
 - [https://grails-fields-plugin.github.io/grails-fields/latest/guide/index.html](https://grails-fields-plugin.github.io/grails-fields/latest/guide/index.html)
 
+https://docs.grails.org/latest/guide/commandLine.html
+./gradlew runCommand  -Pargs="create-job com.fernando.MeuProcessador"  
