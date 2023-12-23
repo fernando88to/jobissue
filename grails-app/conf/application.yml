@@ -1,6 +1,6 @@
 ---
 quartz:
-  autoStartup: false
+  autoStartup: true
 ---
 #info:
 #  app:
