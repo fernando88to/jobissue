@@ -16,7 +16,6 @@ class CreateMyJobCommand implements GrailsApplicationCommand {
 
 
     // Implementa o método 'handle' para processar o comando
-
     boolean handle() {
 
 
@@ -32,7 +31,7 @@ class CreateMyJobCommand implements GrailsApplicationCommand {
 
         String pathDestinationFile = "grails-app/jobs/$model.packagePath/${trimTrailingJobFromJobName(model.simpleName)}Job.groovy"
         File fileDestination = file(pathDestinationFile)
-        render template: "MyJob.groovy",
+        render template: "MyJob.txt",
                 destination: fileDestination,
                 model: model
         return true
